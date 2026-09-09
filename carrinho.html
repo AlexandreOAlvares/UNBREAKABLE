@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNBREAKABLE | Carrinho</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">UN<span>BREAKABLE</span></div>
+            <ul class="nav-links">
+                <li id="nav-home"><a href="índex.html">Home</a></li>
+                <li id="nav-produtos"><a href="produtos.html">Produtos</a></li>
+                <li id="nav-cadastro"><a href="cadastro.html">Cadastro</a></li>
+                <li id="nav-login"><a href="login.html">Login</a></li>
+            </ul>
+            <div class="cart-icon"><a href="carrinho.html">🛒</a></div>
+        </nav>
+    </header>
+
+    <section class="container">
+        <h2 class="section-title">CARRINHO</h2>
+        <div id="cart-items">
+            <!-- Itens do carrinho serão exibidos aqui -->
+        </div>
+        <div id="cart-total" style="text-align: center; margin-top: 20px; color: #fff;">
+            Total: R$ <span id="total-price">0.00</span>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button id="checkout-btn" class="btn-main">Finalizar Compra</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 UNBREAKABLE - O jogo nunca para.</p>
+    </footer>
+
+    <script>
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.style.cssText = 'display: flex; justify-content: space-between; align-items: center; padding: 10px; background-color: #111; margin-bottom: 10px; border-radius: 5px;';
+                itemDiv.innerHTML = `
+                    <div>
+                        <h3 style="color: #fff;">${item.name}</h3>
+                        <p style="color: #ccc;">R$ ${item.price.toFixed(2)}</p>
+                    </div>
+                    <button onclick="removeFromCart(${index})" style="background-color: #ff0000; color: #fff; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Remover</button>
+                `;
+                cartItems.appendChild(itemDiv);
+                total += item.price;
+            });
+            document.getElementById('total-price').textContent = total.toFixed(2);
+        }
+
+        function removeFromCart(index) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        document.getElementById('checkout-btn').addEventListener('click', () => {
+            alert('Compra finalizada! (Funcionalidade simulada)');
+            localStorage.removeItem('cart');
+            loadCart();
+        });
+
+        loadCart();
+    </script>
+</body>
+</html>

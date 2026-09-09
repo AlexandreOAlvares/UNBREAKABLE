@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNBREAKABLE | Login</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">UN<span>BREAKABLE</span></div>
+            <ul class="nav-links">
+                <li id="nav-home"><a href="índex.html">Home</a></li>
+                <li id="nav-produtos"><a href="produtos.html">Produtos</a></li>
+                <li id="nav-cadastro"><a href="cadastro.html">Cadastro</a></li>
+                <li id="nav-login"><a href="login.html">Login</a></li>
+            </ul>
+            <div class="cart-icon"><a href="carrinho.html">🛒</a></div>
+        </nav>
+    </header>
+
+    <section class="container">
+        <h2 class="section-title">LOGIN</h2>
+        <form id="login-form" style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #111; border-radius: 5px;">
+            <div style="margin-bottom: 15px;">
+                <label for="username" style="display: block; margin-bottom: 5px; color: #fff;">Nome de Usuário:</label>
+                <input type="text" id="username" name="username" required style="width: 100%; padding: 10px; border: 1px solid #333; background-color: #222; color: #fff; border-radius: 3px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label for="password" style="display: block; margin-bottom: 5px; color: #fff;">Senha:</label>
+                <input type="password" id="password" name="password" required style="width: 100%; padding: 10px; border: 1px solid #333; background-color: #222; color: #fff; border-radius: 3px;">
+            </div>
+            <button type="submit" class="btn-main" style="width: 100%;">Entrar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 UNBREAKABLE - O jogo nunca para.</p>
+    </footer>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            const response = await fetch('/api/users/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+            if (response.ok) {
+                alert('Login realizado com sucesso!');
+                // Redirect or something
+            } else {
+                alert('Credenciais inválidas.');
+            }
+        });
+    </script>
+</body>
+</html>

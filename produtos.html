@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNBREAKABLE | Produtos</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">UN<span>BREAKABLE</span></div>
+            <ul class="nav-links">
+                <li id="nav-home"><a href="índex.html">Home</a></li>
+                <li id="nav-produtos"><a href="produtos.html">Produtos</a></li>
+                <li id="nav-cadastro"><a href="cadastro.html">Cadastro</a></li>
+                <li id="nav-login"><a href="login.html">Login</a></li>
+            </ul>
+            <div class="cart-icon"><a href="carrinho.html">🛒</a></div>
+        </nav>
+    </header>
+
+    <section class="container" id="produtos">
+        <h2 class="section-title" id="page-title">PRODUTOS</h2>
+        <div id="products-list" class="grid-categories">
+            <div class="card">
+                <div style="width: 100%; height: 100%; background-color: #222; display: flex; align-items: center; justify-content: center;">
+                    <p style="color: #00d4ff; font-size: 1.2rem;">Sem foto</p>
+                </div>
+                <div class="card-overlay">
+                    <h3>Regata UNBREAKABLE</h3>
+                    <p>R$ 89.99</p>
+                    <button onclick="addToCart('Regata UNBREAKABLE', 89.99)" style="margin-top: 10px; background-color: #00d4ff; color: #000; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="card">
+                <div style="width: 100%; height: 100%; background-color: #222; display: flex; align-items: center; justify-content: center;">
+                    <p style="color: #00d4ff; font-size: 1.2rem;">Sem foto</p>
+                </div>
+                <div class="card-overlay">
+                    <h3>Camisa Oversized</h3>
+                    <p>R$ 79.99</p>
+                    <button onclick="addToCart('Camisa Oversized', 79.99)" style="margin-top: 10px; background-color: #00d4ff; color: #000; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="card">
+                <div style="width: 100%; height: 100%; background-color: #222; display: flex; align-items: center; justify-content: center;">
+                    <p style="color: #00d4ff; font-size: 1.2rem;">Sem foto</p>
+                </div>
+                <div class="card-overlay">
+                    <h3>Camisa de Compressão</h3>
+                    <p>R$ 69.99</p>
+                    <button onclick="addToCart('Camisa de Compressão', 69.99)" style="margin-top: 10px; background-color: #00d4ff; color: #000; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+            <div class="card">
+                <div style="width: 100%; height: 100%; background-color: #222; display: flex; align-items: center; justify-content: center;">
+                    <p style="color: #00d4ff; font-size: 1.2rem;">Sem foto</p>
+                </div>
+                <div class="card-overlay">
+                    <h3>Moletom UNBREAKABLE</h3>
+                    <p>R$ 149.99</p>
+                    <button onclick="addToCart('Moletom UNBREAKABLE', 149.99)" style="margin-top: 10px; background-color: #00d4ff; color: #000; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 UNBREAKABLE - O jogo nunca para.</p>
+    </footer>
+
+    <script src="Script.js"></script>
+</body>
+</html>
